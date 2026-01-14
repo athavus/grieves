@@ -1,14 +1,16 @@
 <template>
   <section
-    v-if="deviceDetails"
+    v-if="devices && devices.length > 0"
     class="col-span-3 bg-white rounded-lg shadow p-6 overflow-auto max-h-[calc(100vh-128px)]"
   >
-    <h2 class="text-lg font-semibold mb-4">Monitoramento do Dispositivo: {{ deviceId }}</h2>
+    <h2 class="text-lg font-semibold mb-4">Monitoramento do Dispositivo: {{ selectedDeviceId }}</h2>
 
-    <DeviceStatusGrid 
-      :device-details="deviceDetails" 
-      :key="deviceDetails.raspberry_id"
-    />
+    <div v-for="device in devices" :key="device.raspberry_id">
+      <DeviceStatusGrid 
+        v-show="device.raspberry_id === selectedDeviceId"
+        :device-details="device" 
+      />
+    </div>
   </section>
 </template>
 
@@ -21,11 +23,11 @@ export default {
     DeviceStatusGrid
   },
   props: {
-    deviceDetails: {
-      type: Object,
-      default: null
+    devices: {
+      type: Array,
+      default: () => []
     },
-    deviceId: {
+    selectedDeviceId: {
       type: [String, Number],
       default: null
     },

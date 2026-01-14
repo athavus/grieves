@@ -16,8 +16,8 @@
             />
 
             <DeviceDetails
-                :device-details="selectedDeviceDetails"
-                :device-id="selectedDeviceId"
+                :devices="devices"
+                :selected-device-id="selectedDeviceId"
                 :loading="loading"
             />
 
@@ -135,7 +135,6 @@ export default {
         const selectDevice = async (id) => {
             if (id === selectedDeviceId.value) return;
             selectedDeviceId.value = id;
-            selectedDeviceDetails.value = null;
             loading.value = true;
             error.value = null;
             await fetchDeviceDetails(id);
@@ -152,6 +151,7 @@ export default {
             fetchAllData();
 
             refreshTimer = setInterval(() => {
+                fetchDevices(); // Updates ALL devices in the background
                 if (selectedDeviceId.value) {
                     fetchDeviceDetails(selectedDeviceId.value);
                     fetchRealtimeMessages();
