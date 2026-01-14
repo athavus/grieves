@@ -118,7 +118,9 @@ def get_system_info():
         print(f"Erro ao coletar info do sistema: {e}")
         return {}
 
-def start_telemetry(rabbitmq_host="192.168.15.3", user="athavus", password="1234"):
+def start_telemetry(rabbitmq_host=None, user="athavus", password="1234"):
+    if rabbitmq_host is None:
+        rabbitmq_host = os.getenv("RABBITMQ_HOST", "192.168.15.3")
     raspberry_id = socket.gethostname()
     print(f"Iniciando telemetria para: {raspberry_id}")
     

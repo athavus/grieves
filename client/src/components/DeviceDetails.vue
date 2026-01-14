@@ -7,6 +7,7 @@
 
     <DeviceStatusGrid 
       :device-details="deviceDetails" 
+      :key="deviceDetails.raspberry_id"
     />
   </section>
 </template>

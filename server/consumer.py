@@ -4,6 +4,7 @@ import threading
 from shared import received_messages
 from database import SessionLocal, DeviceStatus, DeviceStatusHistory
 from datetime import datetime
+import os
 
 def process_raspberry_data(data):
     """Processa dados de telemetria das Raspberries e salva no banco"""
@@ -67,8 +68,9 @@ def rabbit_consumer():
     """Consumer do RabbitMQ que processa mensagens das Raspberries"""
     try:
         credentials = pika.PlainCredentials('athavus', '1234')
+        rabbitmq_host = os.getenv("RABBITMQ_HOST", "192.168.15.3")
         connection = pika.BlockingConnection(
-            pika.ConnectionParameters('localhost', 5672, '/', credentials, heartbeat=600)
+            pika.ConnectionParameters(rabbitmq_host, 5672, '/', credentials, heartbeat=600)
         )
         channel = connection.channel()
         channel.queue_declare(queue='rasp_data', durable=True)

@@ -135,6 +135,7 @@ export default {
         const selectDevice = async (id) => {
             if (id === selectedDeviceId.value) return;
             selectedDeviceId.value = id;
+            selectedDeviceDetails.value = null;
             loading.value = true;
             error.value = null;
             await fetchDeviceDetails(id);
