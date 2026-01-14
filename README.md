@@ -1,14 +1,14 @@
 <div align="center">
-  <h1>Grieves</h1>
-  <p><strong>Sistema de Otimização Preditiva de Consumo Energético Através de Gêmeos Digitais</strong></p>
-  <img src="./docs/assets/dashboard.png" alt="Grieves Dashboard" width="800">
+  <img src="./docs/assets/dashboard.png" alt="Hermes Dashboard" width="800">
+  <h1>Hermes</h1>
+  <p><strong>Sistema de Gerenciamento de Telemetria de Várias Máquinas</strong></p>
 </div>
 
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
 ![Vue.js](https://img.shields.io/badge/Vue.js-3.0-green)
 ![RabbitMQ](https://img.shields.io/badge/RabbitMQ-3.9-orange)
 
-Grieves é uma plataforma de monitoramento distribuído projetada para coletar, processar e visualizar métricas de desempenho de múltiplas máquinas em tempo real. Utilizando uma arquitetura baseada em eventos com RabbitMQ, o sistema garante alta disponibilidade e escalabilidade para o monitoramento de frotas de servidores ou dispositivos computacionais.
+Hermes é uma plataforma de monitoramento distribuído projetada para coletar, processar e visualizar métricas de desempenho de múltiplas máquinas em tempo real. Utilizando uma arquitetura baseada em eventos com RabbitMQ, o sistema garante alta disponibilidade e escalabilidade para o monitoramento de frotas de servidores ou dispositivos computacionais.
 
 ## Arquitetura
 
@@ -60,7 +60,7 @@ graph TD
 ## Estrutura do Projeto
 
 ```bash
-📦 grieves
+📦 hermes
 ├── 📂 client        # Frontend Vue.js (Dashboard administrativo)
 ├── 📂 docs          # Documentação técnica e assets
 ├── 📂 server        # Backend (Publishers, Consumers e Banco de Dados)
@@ -112,4 +112,4 @@ Para detalhes específicos, consulte a pasta [`/docs`](./docs):
 *   [Modelagem do Banco de Dados](./docs/database.md)
 
 ---
-*Grieves - Telemetry Management System*
+*Hermes - Telemetry Management System*
