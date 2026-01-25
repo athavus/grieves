@@ -1,2 +1,25 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+docs/**                  linguist-documentation
+client/dist/**           linguist-generated
+client/node_modules/**   linguist-generated
+
+*.js                     linguist-language=TypeScript
+*.ts                     linguist-language=TypeScript
+*.tsx                    linguist-language=TypeScript
+*.jsx                    linguist-language=TypeScript
+client/**                linguist-language=TypeScript
+
+*.md                     linguist-documentation
+
+client/pnpm-lock.yaml    linguist-generated
+client/package-lock.json linguist-generated
+
+*.png                    linguist-generated
+*.svg                    linguist-generated
+*.css                    linguist-generated
+*.html                   linguist-generated
+
+server/**                linguist-language=Python
+*.rs                     linguist-language=Python
